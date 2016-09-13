@@ -29,6 +29,86 @@
  */
 
  $(function(){
+var shootButtonOne = $('#teamone-shoot');
+var shootButtonTwo = $('#teamtwo-shoot');
+var resetButton = $('#reset');
+var counter1 = 0;
+var counter2 = 0;
+var resetCounter = 0;
+var teamOneHits = 0;
+var teamTwoHits = 0;
+
+
+/*generates random number (1 or 0) to signify hit or miss
+*
+*/
+function getRandomIntInclusive() {
+  min = Math.ceil(0);
+  max = Math.floor(1);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+/*controls team one functions when 'shoot' is clicked, including keeping track of number of shots and goals and 
+* changing the background color if a goal is made
+*/
+
+shootButtonOne.click(function(){
+	counter1++;
+	$('#teamone-numshots').html(counter1);
+	var result = getRandomIntInclusive();
+	if (result ==1){
+		$('body').css("background-color","purple");
+		alert("SCORE!")
+		teamOneHits++;
+		$('#teamone-numhits').html(teamOneHits);
+}
+else {
+		$('body').css("background-color","white");
+		alert("Miss :(")
+}
+
+});
+
+/*controls team two functions when 'shoot' is clicked, including keeping track of number of shots and goals and 
+* changing the background color if a goal is made
+*/
+
+shootButtonTwo.click(function(){
+	counter2++;
+	$('#teamtwo-numshots').html(counter2);
+	var result = getRandomIntInclusive();
+	if (result ==1){
+		$('body').css("background-color","green");
+		alert("SCORE!")
+		teamTwoHits++;
+		$('#teamtwo-numhits').html(teamTwoHits);
+}
+else {
+		$('body').css("background-color","white");
+		alert("Miss :(")
+}
+
+});
+
+/*controls reset button, updates reset counter and clears shots and goals
+*
+*/
+
+resetButton.click(function(){
+	$('body').css("background-color","white");
+	resetCounter++;
+	counter1 = 0;
+ 	counter2 = 0;
+ 	teamOneHits = 0;
+ 	teamTwoHits = 0;
+ 	$('#num-resets').html(resetCounter)
+ 	$('#teamone-numshots').html(counter1);
+	$('#teamtwo-numshots').html(counter2);
+	$('#teamone-numhits').html(teamOneHits);
+	$('#teamtwo-numhits').html(teamTwoHits);
+})
+
+
 
 
 
