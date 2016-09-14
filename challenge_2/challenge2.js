@@ -25,7 +25,6 @@ $('p').each(function() {
 
 $('.post:last').remove();
 $('.post:last').remove();
-$('.post:last').remove();
 
 
 })
