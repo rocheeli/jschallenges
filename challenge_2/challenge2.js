@@ -23,5 +23,9 @@ $('p').each(function() {
     $(this).text(text.replace('Bacon', 'Laser Vision')); 
 });
 
+$('.post:last').remove();
+$('.post:last').remove();
+$('.post:last').remove();
+
 
 })
